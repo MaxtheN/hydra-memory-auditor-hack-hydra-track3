@@ -1,0 +1,71 @@
+{
+  "subject": "guest:ava",
+  "current_claims": [
+    {
+      "id": 1,
+      "predicate": "prefers_room",
+      "object": "quiet",
+      "observed": "2026-08-01",
+      "source": "call-104",
+      "current": true
+    },
+    {
+      "id": 2,
+      "predicate": "prefers_room",
+      "object": "near_elevator",
+      "observed": "2026-08-12",
+      "source": "chat-882",
+      "current": true
+    },
+    {
+      "id": 3,
+      "predicate": "arrival",
+      "object": "after_22:00",
+      "observed": "2026-08-12",
+      "source": "email-221",
+      "current": true
+    },
+    {
+      "id": 4,
+      "predicate": "needs",
+      "object": "accessible_shower",
+      "observed": "2026-08-13",
+      "source": "call-119",
+      "current": true
+    }
+  ],
+  "conflicts": [
+    {
+      "predicate": "prefers_room",
+      "claims": [
+        {
+          "id": 1,
+          "predicate": "prefers_room",
+          "object": "quiet",
+          "observed": "2026-08-01",
+          "source": "call-104",
+          "current": true
+        },
+        {
+          "id": 2,
+          "predicate": "prefers_room",
+          "object": "near_elevator",
+          "observed": "2026-08-12",
+          "source": "chat-882",
+          "current": true
+        }
+      ],
+      "needs_resolution": true
+    }
+  ],
+  "stale_claims": [
+    {
+      "id": 5,
+      "predicate": "prefers_room",
+      "object": "high_floor",
+      "observed": "2026-05-01",
+      "source": "email-091",
+      "current": false
+    }
+  ]
+}
