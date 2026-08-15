@@ -111,7 +111,7 @@ OK
 
 `demo-output.json` was separately asserted to contain exactly four current claims, one stale claim, one `prefers_room` conflict with `needs_resolution: true`, the objects `quiet` and `near_elevator`, and non-empty sources on all five claims.
 
-Repository history at verification time: one commit, `e0e4b98d6ae83f3494cb836963e733b23671a0d0`, authored and committed `2026-08-14T17:15:12Z`; no repository commit predates the August 12 build window. Uncommitted submission-package changes must be committed before publication.
+Repository history begins inside the August 12–21 build window. Source, documentation, license, proof card, and captioned demo are committed locally; verify the current head with `git log -1` immediately before publication.
 
 ## Claims-safe demo script and storyboard (about 90 seconds)
 
