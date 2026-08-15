@@ -1,12 +1,46 @@
 # Memory Auditor for HydraDB
 
-A small Track 3 demo: an AI agent stores temporal claims with provenance in HydraDB, then audits current memory for contradictions before acting.
+A small Hack Hydra Track 3 demo that stores temporal, source-backed agent-memory claims in HydraDB and audits them for contradictions before an agent acts.
 
-The sample hospitality workflow catches a real failure mode: a returning guest has two current room preferences (`quiet` and `near_elevator`). Instead of silently picking one, the agent returns both source records and marks the predicate for resolution. Superseded claims remain queryable for audit history.
+## Problem
 
-## Run
+Agent memories change across sessions. A flat note or retrieved snippet can look plausible while hiding when it was observed, whether it is still current, or which source supports it. In the sample hospitality workflow, a returning guest has two current room preferences: `quiet` and `near_elevator`. The auditor returns both provenance records and marks the predicate for resolution instead of silently choosing one. A stale `high_floor` preference remains queryable for history.
 
-Requires Docker and Python 3.11+.
+## Verified behavior
+
+A clean local integration run on 2026-08-14 wrote five claims through HydraDB's HTTP/OpenCypher API and read all five back:
+
+- 4 current claims
+- 1 stale claim
+- 1 conflict on `prefers_room`, backed by `call-104` and `chat-882`
+- 2 passing Python unit checks
+
+The complete audit response is committed as [`demo-output.json`](demo-output.json). No benchmark-accuracy, production-scale, latency, or cost claim is made.
+
+## Architecture
+
+```text
+Python CLI (stdlib)
+  | seed: CREATE Subject-[:HAS_CLAIM]->Claim
+  | audit: MATCH claims by subject key
+  v
+HydraDB HTTPS/OpenCypher API
+  v
+HydraDB graph store (local object-store persistence in Docker)
+  |
+  +--> JSON: current_claims / stale_claims / conflicts
+```
+
+Each `Claim` records a predicate, object, observation date, source identifier, and current flag. `HAS_CLAIM` connects it to a `Subject`. HydraDB is the durable graph and query layer; without it, this demo has no claim store or audit input.
+
+## Setup and run
+
+Requirements:
+
+- Docker
+- Python 3.11+
+- `curl`
+- Ports `27687`, `28443`, and `29090` available locally
 
 ```bash
 ./start.sh
@@ -15,12 +49,28 @@ python3 app.py audit guest:ava
 python3 -m unittest -v
 ```
 
-HydraDB is the durable graph layer, queried through its HTTP/OpenCypher API. The application itself uses only Python's standard library.
+`start.sh` launches the verified HydraDB image digest `ghcr.io/hydra-db/hydradb@sha256:db78309a233be54662db29744047e985a39b51c45a270d1a1f47c31a62cdb709`, waits up to 30 seconds for `/readyz`, and uses throwaway data under `${TMPDIR:-/tmp}/hydra-memory-auditor`. Set `HYDRA_IMAGE` to test another HydraDB image. The app reads `HYDRA_URL` and `HYDRA_TOKEN` if the defaults are unsuitable.
 
-## Why a graph
+`./start.sh` resets the named local demo container and its throwaway data before each run. Do not use it against data that must be retained.
 
-Memory is not a flat note. Claims belong to subjects, come from sources, change over time, and can disagree. The same shape extends naturally to `SUPPORTED_BY`, `SUPERSEDES`, and multi-agent provenance edges without copying context into prompts.
+## Tests
 
-## Demo output
+```bash
+python3 -m unittest -v
+```
 
-The audit returns current claims, stale claims, and source-backed conflicts as JSON, making it directly consumable by an agent approval step or a front end.
+The two unit checks cover OpenCypher string escaping and decoding HydraDB's typed HTTP values. The command sequence above is the integration check.
+
+## Scope and limitations
+
+This is a focused conflict-audit demo, not a general memory platform. It uses `observed` and `current` properties rather than explicit `SUPERSEDES` edges; its conflict rule is “two distinct current objects for one predicate.” It has no LongMemEval/BEAM result, vector-store baseline, explicit natural-language abstention policy, authentication UI, hosted deployment, or measured production cost/latency.
+
+## Submission assets
+
+Form-ready copy, judging mapping, verification notes, and the demo script are in [`submission/SUBMISSION.md`](submission/SUBMISSION.md). Local visual proof and the 75-second captioned demo are in `submission/demo-proof.png` and `submission/hydra-memory-auditor-demo.mp4`.
+
+## Attribution and license
+
+HydraDB is used through its published container and HTTP/OpenCypher API; no HydraDB source is vendored here. Upstream: <https://github.com/hydra-db/hydradb>. The application uses only Python's standard library. Development and packaging were AI-assisted; every functional claim above is backed by the documented local commands.
+
+Licensed under the [MIT License](LICENSE).
