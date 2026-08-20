@@ -2,9 +2,9 @@
 
 **Project:** Memory Auditor for HydraDB  
 **Track:** Track 3 | Memory + Context Retrieval  
-**Package verified:** 2026-08-14T21:12:02Z  
+**Package verified:** 2026-08-20T15:07:13Z
 **Official deadline:** 2026-08-20 11:59 PM PT = 2026-08-21 11:59 AM GMT+5  
-**State:** complete locally; public repository URL, public video URL, declarations, rules/code-of-conduct agreement, and final form submission are intentionally pending owner approval
+**State:** complete; the public repository and 75-second demo video are published and independently reachable. Private contact fields, rules/code-of-conduct agreement, and final form submission remain pending owner approval.
 
 ## Form-ready answers
 
@@ -40,8 +40,8 @@ Python 3.11 standard library, HydraDB HTTPS/OpenCypher API, Docker, Bash, JSON.
 ### URLs
 
 - **Deployed project:** none; this is a reproducible local Docker demo
-- **Public GitHub repository:** pending explicit publication approval
-- **YouTube demo:** pending explicit upload approval; local source asset is `submission/hydra-memory-auditor-demo.mp4`
+- **Public GitHub repository:** https://github.com/MaxtheN/hydra-memory-auditor-hack-hydra-track3
+- **Public demo video:** https://raw.githubusercontent.com/MaxtheN/hydra-memory-auditor-hack-hydra-track3/master/submission/hydra-memory-auditor-demo.mp4 — 75-second H.264 source asset
 
 ### Anything else the judges should know?
 
@@ -153,12 +153,15 @@ Ready locally:
 - [x] Claims checked against a fresh HydraDB execution
 - [x] Participant-authored repository history begins after August 12, 2026
 
-Pending external/owner actions:
+Published and verified on 2026-08-20:
+
+- [x] Public MIT repository
+- [x] Public 75-second demo video
+- [x] Repository and video open without authentication; the public video hash matches the reviewed local asset
+
+Pending owner/final-form actions:
 
 - [ ] Confirm team size, verified team email/LinkedIn, contribution wording, and single-submission rule
-- [ ] Approve MIT publication and create a public GitHub repository
-- [ ] Review then upload the local demo as an accessible YouTube link
-- [ ] Verify every public link opens without requesting access
 - [ ] Personally review/agree to the Hack Hydra rules and code of conduct
 - [ ] Submit the official Google Form
 
