@@ -67,7 +67,7 @@ This is a focused conflict-audit demo, not a general memory platform. It uses `o
 
 ## Submission assets
 
-Form-ready copy, judging mapping, verification notes, and the demo script are in [`submission/SUBMISSION.md`](submission/SUBMISSION.md). Local visual proof and the 75-second captioned demo are in `submission/demo-proof.png` and `submission/hydra-memory-auditor-demo.mp4`.
+Form-ready copy, judging mapping, verification notes, and the demo script are in [`submission/SUBMISSION.md`](submission/SUBMISSION.md). Watch the 75-second demo on [YouTube](https://youtu.be/ycaNb2KIUL8); its reviewed source file and visual proof are in `submission/hydra-memory-auditor-demo.mp4` and `submission/demo-proof.png`.
 
 ## Attribution and license
 

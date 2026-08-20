@@ -2,9 +2,9 @@
 
 **Project:** Memory Auditor for HydraDB  
 **Track:** Track 3 | Memory + Context Retrieval  
-**Package verified:** 2026-08-20T17:00:16Z
+**Package verified:** 2026-08-20T17:20:00Z
 **Official deadline:** 2026-08-20 11:59 PM PT = 2026-08-21 11:59 AM GMT+5  
-**State:** complete; the public repository and 75-second demo video are published and independently reachable. Private contact fields, rules/code-of-conduct agreement, and final form submission remain pending owner approval.
+**State:** complete; the public repository and unlisted YouTube demo are independently reachable, and the official form is filled through the final page. The single-submission confirmation, rules/code-of-conduct agreement, and final submit remain pending owner approval.
 
 ## Form-ready answers
 
@@ -41,7 +41,8 @@ Python 3.11 standard library, HydraDB HTTP/OpenCypher API, Docker, Bash, JSON.
 
 - **Deployed project:** none; this is a reproducible local Docker demo
 - **Public GitHub repository:** https://github.com/MaxtheN/hydra-memory-auditor-hack-hydra-track3
-- **Public demo video:** https://raw.githubusercontent.com/MaxtheN/hydra-memory-auditor-hack-hydra-track3/master/submission/hydra-memory-auditor-demo.mp4 — 75-second H.264 source asset
+- **Public demo video:** https://youtu.be/ycaNb2KIUL8 — unlisted, 75 seconds, playable without sign-in
+- **Reviewed source asset:** https://raw.githubusercontent.com/MaxtheN/hydra-memory-auditor-hack-hydra-track3/master/submission/hydra-memory-auditor-demo.mp4 — H.264, SHA-256 `3757d2f116fc93dd8fc6e78f138f87463df6e68dd3831fe9f8a9186ace988037`
 
 ### Anything else the judges should know?
 
@@ -156,13 +157,14 @@ Ready locally:
 Published and verified on 2026-08-20:
 
 - [x] Public MIT repository
-- [x] Public 75-second demo video
-- [x] Repository and video open without authentication; the public video hash matches the reviewed local asset
+- [x] Unlisted 75-second YouTube demo playable without sign-in
+- [x] Public source asset matches the reviewed local video hash
+- [x] Official form is filled through its final confirmation page
 
 Pending owner/final-form actions:
 
-- [ ] Confirm team size, verified team email/LinkedIn, contribution wording, and single-submission rule
-- [ ] Personally review/agree to the Hack Hydra rules and code of conduct
-- [ ] Submit the official Google Form
+- [ ] Confirm every listed team member is part of only this Hack Hydra submission
+- [ ] Personally agree to the published Hack Hydra rules and referenced code of conduct
+- [ ] Check the six required confirmations and submit the official Google Form
 
-**Executable approval reply:** `HYDRA GO: MIT approved; publish repo, upload demo, and submit Track 3`
+**Executable approval reply:** `HYDRA DECLARATIONS: ONLY SUBMISSION YES / RULES + CODE OF CONDUCT AGREE / SUBMIT`
