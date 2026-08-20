@@ -2,7 +2,7 @@
 
 **Project:** Memory Auditor for HydraDB  
 **Track:** Track 3 | Memory + Context Retrieval  
-**Package verified:** 2026-08-20T15:07:13Z
+**Package verified:** 2026-08-20T17:00:16Z
 **Official deadline:** 2026-08-20 11:59 PM PT = 2026-08-21 11:59 AM GMT+5  
 **State:** complete; the public repository and 75-second demo video are published and independently reachable. Private contact fields, rules/code-of-conduct agreement, and final form submission remain pending owner approval.
 
@@ -22,11 +22,11 @@ A standard-library Python CLI that seeds five time-stamped claims, queries them 
 
 ### How does your project use HydraDB?
 
-HydraDB is the core claim store and query layer. The CLI writes `Subject-[:HAS_CLAIM]->Claim` graph patterns through HydraDB's HTTPS/OpenCypher API, then matches all claims for a subject and audits the returned graph records. Each claim carries an observation date, source identifier, and current flag. Without HydraDB, the demo has neither persisted claims nor audit input; it would need a replacement database and query path.
+HydraDB is the core claim store and query layer. The CLI writes `Subject-[:HAS_CLAIM]->Claim` graph patterns through HydraDB's HTTP/OpenCypher API, then matches all claims for a subject and audits the returned graph records. Each claim carries an observation date, source identifier, and current flag. Without HydraDB, the demo has neither persisted claims nor audit input; it would need a replacement database and query path.
 
 ### Tech Stack
 
-Python 3.11 standard library, HydraDB HTTPS/OpenCypher API, Docker, Bash, JSON.
+Python 3.11 standard library, HydraDB HTTP/OpenCypher API, Docker, Bash, JSON.
 
 ### Team fields
 
@@ -51,12 +51,12 @@ This is deliberately narrow and auditable. The verified integration writes and r
 
 ```text
 app.py seed
-  -> HTTPS/OpenCypher CREATE
+  -> HTTP/OpenCypher CREATE
   -> (Subject)-[:HAS_CLAIM]->(Claim)
   -> HydraDB local object-store-backed graph
 
 app.py audit guest:ava
-  -> HTTPS/OpenCypher MATCH by Subject.key
+  -> HTTP/OpenCypher MATCH by Subject.key
   -> decode HydraDB typed values
   -> partition current/stale
   -> group current claims by predicate

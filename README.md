@@ -24,7 +24,7 @@ Python CLI (stdlib)
   | seed: CREATE Subject-[:HAS_CLAIM]->Claim
   | audit: MATCH claims by subject key
   v
-HydraDB HTTPS/OpenCypher API
+HydraDB HTTP/OpenCypher API
   v
 HydraDB graph store (local object-store persistence in Docker)
   |
